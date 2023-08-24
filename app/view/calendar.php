@@ -2,10 +2,14 @@
     <thead>
       <tr>
         <th colspan='4' class='month'>
-          <?=$data->monthName; ?>
+          <?=$data->monthName;
+          // displaying supplied month name im $data object
+          ?> 
         </th>
         <th colspan='3' class='year'>
-          <?=$data->year; ?>
+          <?=$data->year; 
+          // displaying supplied year in $data object
+          ?>
         </th>
       </tr>      
       <tr>
@@ -35,12 +39,12 @@
     </thead>
     <tbody>
       <?php
-      foreach($data->monthMap as $row)
+      foreach($data->monthMap as $row) //looping through month map stored in a first array groups each one contains data for one week (one row)
       {
         echo '<tr>';
-        foreach($row as $key => $day)
+        foreach($row as $key => $day) //looping through each week (row) displaying each day for current week (row)
         {
-          ($key == 6) ? $class='red' : $class = 'black';
+          ($key == 6) ? $class='red' : $class = 'black'; //replacing class (colour change) if loop reach last day in this case set as Sunday
           echo '<td class="'.$class.'">';
             echo $day;
           echo '</td>';
